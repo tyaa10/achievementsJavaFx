@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -31,7 +32,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <CustomTextField promptText="заголовок">
+                  <CustomTextField fx:id="titleTextField" promptText="заголовок">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -44,7 +45,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <TextArea prefHeight="200.0" prefWidth="200.0" promptText="контент">
+                  <TextArea fx:id="contentTextField" prefHeight="200.0" prefWidth="200.0" promptText="контент">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -52,7 +53,12 @@
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </TextArea>
-                  <Button mnemonicParsing="false" text="Добавить" />
+                  <ButtonBar prefHeight="40.0" prefWidth="200.0">
+                    <buttons>
+                      <Button mnemonicParsing="false" onAction="#addAchievementAction" text="Добавить" />
+                        <Button layoutX="135.0" layoutY="18.0" mnemonicParsing="false" onAction="#delAchievementAction" text="Удалить" />
+                    </buttons>
+                  </ButtonBar>
                </children>
                <BorderPane.margin>
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
@@ -62,11 +68,11 @@
          <center>
             <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                <children>
-                  <TableView>
+                  <TableView fx:id="achievementsTable">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="id" />
-                      <TableColumn prefWidth="75.0" text="заголовок" />
-                        <TableColumn prefWidth="75.0" text="контент" />
+                        <TableColumn fx:id="idCol" prefWidth="75.0" text="id" />
+                        <TableColumn fx:id="titleCol" prefWidth="75.0" text="заголовок" />
+                        <TableColumn fx:id="contentCol" prefWidth="75.0" text="контент" />
                     </columns>
                   </TableView>
                </children>
